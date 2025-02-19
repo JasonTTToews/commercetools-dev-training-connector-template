@@ -10,12 +10,16 @@ import { Resource } from '../interfaces/resource.interface';
  * @returns {object}
  */
 const create = async (resource: Resource) => {
-  const updateActions: Array<UpdateAction> = [];
+  const updateAction: UpdateAction = {
+    action: "setCustomerNumber",
+    // generate a number between 1000 and 1899
+    customerNumber: String(Math.floor(1000 + Math.random() * 900)),
+  }
 
   // TODO: Create the UpdateAction Object to return it to the client
 
 
-  return { statusCode: 201, actions: updateActions };
+  return { statusCode: 201, actions: [updateAction] };
 };
 
 // Controller for update actions
